@@ -1,0 +1,40 @@
+seasonplot(icast,s=12, year.labels=TRUE,main="Valor de acciones de ICA",ylab="Valor de Cierre",col="deepskyblue4", year.labels.left=TRUE,pch=19)
+monthplot(icast,main="Valor de acciones de ICA",ylab="Valor de Cierre",col="deepskyblue4")
+cov(icast,alfast)
+x<-mean(icast)
+y<-mean(alfast)
+sum((icast-x)*((alfast-y))/(length(icast)-1))
+
+cor(icast,alfast)
+cov(icast,alfast)/(sd(icast)*sd(alfast))
+
+#################################################################################################
+
+seasonplot(icast,s=12, year.labels=TRUE,main="Valor de acciones de ICA",ylab="Valor de Cierre",col="deepskyblue4", year.labels.left=TRUE,pch=19)
+#entre los años 2001 a 2004 la tendencia se mantiene constante durante todo el año, con muy pocas variaciones, sin tendencia a subir o bajar, no es ciclica
+
+seasonplot(koflst,s=12, year.labels=TRUE,main="Valor de acciones de KOFL",ylab="Valor de Cierre",col="deepskyblue4", year.labels.left=TRUE,pch=19)
+#Los años 2010,2013 y 2014 presentaron tendencias similares y ciclicas, subiendo masomenos a mitad de año, manteniendose relativamente constantes, y las tres con ligeras caidas al final del año
+
+seasonplot(alfast,s=12, year.labels=TRUE,main="Valor de acciones de ALFA",ylab="Valor de Cierre",col="deepskyblue4", year.labels.left=TRUE,pch=19)
+#Entre los años 2014 a 2016 las acciones de Alfa se mantuvieron con una tendencia constante, con bajas muy similares en semptiembre para terminar el año a la alta.
+
+x<-mean(icast)
+y<-mean(alfast)
+z<-mean(koflst)
+
+sum((icast-x)*((alfast-y))/(length(icast)-1))
+sum((alfast-y)*((koflst-z))/(length(icast)-1))
+sum((icast-x)*((koflst-z))/(length(icast)-1))
+
+cov(icast,alfast)
+cov(icast,koflst)
+cov(alfast,koflst)
+
+cor(icast,alfast)
+cor(icast,koflst)
+cor(alfast,koflst)
+
+cov(icast,alfast)/(sd(icast)*sd(alfast))
+cov(icast,koflst)/(sd(icast)*sd(koflst))
+cov(alfast,koflst)/(sd(alfast)*sd(koflst))
